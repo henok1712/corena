@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b1f57489-6eef-43da-a953-2b37a445ca28" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="corenatestFlow" doc:id="3893d9b6-8aff-4f14-a874-9c053cb4282f" >
+		<http:listener doc:name="Listener" doc:id="f2e1ace5-36b0-4d24-989a-c774d78762a4" config-ref="HTTP_Listener_config" path="/corena"/>
+		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="5c6321eb-7cd2-4b75-8557-4710c255dee2" />
+	</flow>
+</mule>
